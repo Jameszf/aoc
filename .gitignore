@@ -1,0 +1,5 @@
+*
+!.gitignore
+!2022/
+!2022/*.hs
+!README.md
