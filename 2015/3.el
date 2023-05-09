@@ -6,11 +6,27 @@
     (buffer-string)))
 
 
-(defun in-list (elem list)
-  (seq-reduce (lambda (acc x) (or acc (equal x elem))) list nil))
+(defun in-list (item list)
+  "Checks if an item is in a list."
+  (seq-reduce (lambda (acc x) (or acc (equal x item))) list nil))
 
 
 (defun partOne ()
+  (let ((input (read-file "3.txt"))
+	(x 0)
+	(y 0)
+	(visited (cons (list 0 0) nil)))
+    (mapcar (lambda (c)
+	      (cond ((= c ?^) (setq y (+ y 1)))
+		    ((= c ?v) (setq y (- y 1)))
+		    ((= c ?<) (setq x (- x 1)))
+		    ((= c ?>) (setq x (+ x 1))))
+	      (when (not (in-list (list x y) visited))
+		(setq visited (cons (list x y) visited)))) input)
+    (message (number-to-string (length visited)))))
+
+
+(defun partTwo ()
   (let ((input (read-file "3.txt"))
 	(x1 0)
 	(y1 0)
@@ -36,5 +52,5 @@
 	      (xor isSanta t)) input)
     (message (number-to-string (- (length visited) 1)))))
 
-
 (partOne)
+(partTwo)
