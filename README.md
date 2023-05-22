@@ -9,6 +9,6 @@ I do the problems from 1 to 25 (no skipping). A day is not "completed" unless I 
 
 | Year | Language | Completed (/25) | 
 | --- | --- | --- |
-| 2015 | Emacs Lisp | 11 |
+| 2015 | Emacs Lisp | 12 |
 | 2022 | Haskell | 8 |
 
